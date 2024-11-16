@@ -1,0 +1,21 @@
+ Please look at these 2 database entries below. Compare the expertise field and consider if the field are in similar industries. tell me if they are smilar. Give a score 1-10 based on similarity.
+ {
+      "documentid": "p1",
+      "first": "Mary",
+      "last": "Johnson",
+      "gender": "female",
+      "city": "Atlanta",
+      "state": "Georgia",
+      "job": "Engineer",
+      "expertise": "Software Engineering",
+      "interest": ["Java", "VIM", "Python"]
+    },
+    {
+        "documentid": "ment1",
+        "name": "Jasmine Sullivan",
+        "job": "Consultant",
+        "gender": "female",
+        "city": "Atlanta",
+        "state": "Georgia",
+        "expertise": ["Data Analytics", "Python", "ML"]
+    },

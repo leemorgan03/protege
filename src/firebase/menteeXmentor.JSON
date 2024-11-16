@@ -1,0 +1,62 @@
+[
+    {
+      "id": "p1",
+      "mentor": true,
+      "name": "Mary",
+      "job": "Software Engineering",
+      "gender": "female",
+      "city": "Atlanta",
+      "state": "Georgia",
+      "expertise": ["Java", "VIM", "Python"]
+    },
+    {
+        "id": "p2",
+        "mentor": true,
+        "name": "Jasmine Sullivan",
+        "job": "Consultant",
+        "gender": "female",
+        "city": "Atlanta",
+        "state": "Georgia",
+        "expertise": ["Data Analytics", "Python", "Machine Learning"]
+    },
+    {
+        "id": "p2",
+        "mentor": true,
+        "name": "Kobe Lawson",
+        "job": "Business Analyst",
+        "gender": "male",
+        "city": "Dallas",
+        "state": "Texas",
+        "expertise": ["Management", "Sales", "Consulting"]
+    },
+    {
+       "id": "m1",
+        "mentor": false,
+        "name": "Jasmine West",
+        "school": "University of Louisville",
+        "gender": "female",
+        "city": "Louisville",
+        "state": "Kentucky",
+        "interest": ["Technology", "UX/UI", "Product Management"]
+    },
+    {
+        "id": "m2",
+        "mentor": false,
+        "name": "Darla Richards",
+        "school": "Spelman College",
+        "gender": "female",
+        "city": "Atlanta",
+        "state": "Georgia",
+        "interest": ["Technology", "Consulting", "Management"]
+    },
+    {
+        "id": "m3",
+        "mentor": false,
+        "name": "Eric Knox",
+        "school": "Columbia Univerisity",
+        "gender": "male",
+        "city": "New York",
+        "state": "New York",
+        "interest": ["Sports", "Investment", "Consulting"]
+    }
+]

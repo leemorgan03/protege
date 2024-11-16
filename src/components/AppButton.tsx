@@ -1,48 +1,93 @@
+import Button from "@mui/material/Button";
+import { useState } from "react";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogTitle from "@mui/material/DialogTitle";
 
-import Button from "@mui/material/Button"
-import {useState} from 'react';
-function AppButton(){
-    const [msg, setmsg] = useState<string>("Tesintg the LLM...Tell a Dad Joke!");
-    function onButtonClick(){
-        console.log("Button Clicked!")
-        const url = "http://localhost:11434/api/generate";
-            const options = {
-              method: 'POST',
-              headers: {
-                'Content-type': 'application/json'
-                    },
-              body: JSON.stringify({
-                "model": "llama3:8b",
-                "prompt": "Why did the chicken cross the road?",
-                "stream": false
-              }),
-                  }
-    fetch(url, options)
-    .then( (res)=>{
-      //this executes if the promise is fulfilled
-      console.log(res);
-      return (res.json())
-    },
+function AppButton() {
+  const [message, setMessage] = useState<string>("Get a Note Summary of your last video call");
+  const [open, setOpen] = useState<boolean>(false); // State to manage dialog visibility
+  const [responseContent, setResponseContent] = useState<string>(""); // For LLM response
 
-    (res2) => {
-      //this executes if the promise is rejected
+  const onButtonClick = async () => {
+    console.log("Button Clicked!");
+    const url = "http://localhost:11434/api/generate";
+
+    // Prepare options to send to Ollama API
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        model: "llama3:8b",
+        prompt: "Summarize this audio transcription and give notes and study recommendations in 3-5 sentences: What area excites you the most? I’m into coding and mobile app development but still figuring out what suits me best. That’s a great start! Since you’re working with Python, you could explore AI or data science, or stick with web development if you enjoy creating user experiences. Use websites like Figma to explore user design. Don’t worry about the math for AI—tools like TensorFlow make it easier. Also, join tech communities and upload your projects to GitHub to build a portfolio. Thanks for the advice! I’ll start using GitHub and keep learning.",
+        stream: false,
+      }),
+    };
+
+    try {
+      // Send request to Ollama API
+      const response = await fetch(url, options);
+      if (!response.ok) {
+        throw new Error(`API Error: ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      console.log(data);
+      setMessage(data.response || "No response from LLM.");
+
+      // Set the response content to display in the dialog box
+      setResponseContent(data.response || "No response received.");
+
+      // Open the dialog to show the response
+      setOpen(true);
+
+    } catch (error) {
+      console.error("Error:", error);
+      setMessage("Error: Unable to fetch response.");
     }
-  )
-  .then((data) =>{
-    //this executes if the json() promise is fulfilled
-    console.log(data)
-    setmsg(data.response)
-  },
-  (data)=> {
+  };
 
-    //this executes if the json() promise if not fulfilled
-  }
-    )   
-  }
+  const handleClose = () => {
+    setOpen(false); // Close the dialog
+  };
 
-return(<>
-    <Button onClick={onButtonClick} variant="contained">Get Notes</Button>
-    <p>{msg}</p>
-    </>);}
+  return (
+    <>
+      <Button onClick={onButtonClick} variant="contained">
+        View Meeting Notes
+      </Button>
+      <p>{message}</p>
+
+      {/* Dialog Popup for displaying LLM response */}
+      <Dialog 
+        open={open} 
+        onClose={handleClose} // Close dialog when backdrop or close button is clicked
+        maxWidth="sm"
+        fullWidth
+        sx={{ 
+          '& .MuiDialog-paper': {
+            margin: 'auto',
+          },
+          '& .MuiDialogBackdrop-root': {
+            backgroundColor: 'rgba(0, 0, 0, 0.5)', // Optional: add a dimmed backdrop
+          }
+        }}
+      >
+        <DialogTitle>Response from LLM</DialogTitle>
+        <DialogContent>
+          <p>{responseContent}</p>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="primary">
+            Close
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </>
+  );
+}
 
 export default AppButton;

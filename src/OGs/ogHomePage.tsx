@@ -18,16 +18,17 @@ const HomePage = () => {
     >
       <Avatar src = '/protege.png' sx = {{width:'250px' , height:'250px'}} > </Avatar>
       
-      <Button variant="outlined" sx={{ mb: 2 }} onClick={() => navigate('/CreateAccount')}>
+      <Button variant="outlined" sx={{ mb: 2 }} onClick={() => navigate('/create-account')}>
         Create an Account
       </Button>
-      <Button variant="outlined" sx={{ mb: 2 }} onClick={() => navigate('/MenteeLogin')}>
+      <Button variant="outlined" sx={{ mb: 2 }} onClick={() => navigate('/mentee-login')}>
         Mentee Login
       </Button>
-      <Button variant="outlined" onClick={() => navigate('/MentorLogin')}>
+      <Button variant="outlined" onClick={() => navigate('/mentor-login')}>
         Mentor Login
       </Button>
     </Box>
   );
 };
+
 export default HomePage;

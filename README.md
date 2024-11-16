@@ -1,52 +1,56 @@
-#We will delete the information in this readme and give a description of our hack project
+# Protégé
 
-# React + TypeScript + Vite
+## Challenge Statement(s) Addressed 🎯
+...include the challenge statement(s) the project worked to address
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Examples:
 
-Currently, two official plugins are available:
+How might we decrease the United States chances of alien and monster attacks given what we know from popular alien and monster movies?
+How might we ....
+Project Description 🤯
+....at least 3 sentences describing what the project does and how it works
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project Value 💰
+....at least 3 sentences describing your target customer and tangible benefits from your solution
 
-## Expanding the ESLint configuration
+## Tech Overview 💻
+... what tech was used to bring this project to life?
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Example:
 
-- Configure the top-level `parserOptions` property like this:
+FastAPI
+Hugging Face AI Models
+Next.js
+Java
+ReactJS
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Link to Video Pitch 📹
+...point us to the short clip that tells us about your solution 😄
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Link to Demo Presentation 📽
+...point us to your PPT or Canva slides 😍
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Team Checklist ✅
+ Team photo
+ Team Slack channel
+ Communication established with mentor
+ Repo creation from this template
+ Hangar registration
+ 
+## Project Checklist 🏁
+ Presentation complete and linked
+ Video pitch recorded and linked
+ Code merged to main branch
+ 
+## School Name 🏫
+The ABC School
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Team Name 🏷
+Coding Costars
+
+## ✨ Contributors ✨
+...tell the world who you and your team are 🙂
+
+Team member X
+Team member Y
+Team member Z
