@@ -2,8 +2,9 @@
 import Button from "@mui/material/Button"
 import {useState} from 'react';
 function AppButton(){
-    const [msg, setmsg] = useState<string>("Okay");
+    const [msg, setmsg] = useState<string>("Tesintg the LLM...Tell a Dad Joke!");
     function onButtonClick(){
+        console.log("Button Clicked!")
         const url = "http://localhost:11434/api/generate";
             const options = {
               method: 'POST',
@@ -30,7 +31,7 @@ function AppButton(){
   .then((data) =>{
     //this executes if the json() promise is fulfilled
     console.log(data)
-    setmsg(data.message.content)
+    setmsg(data.response)
   },
   (data)=> {
 
